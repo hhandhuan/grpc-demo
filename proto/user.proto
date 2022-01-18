@@ -8,6 +8,7 @@ service User {
   rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
 }
 
+// 开发者
 message GetUserRequest {
   int64 id = 1;
 }
