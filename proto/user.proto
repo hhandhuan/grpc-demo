@@ -1,18 +1,13 @@
 syntax = "proto3";
 
-package hello;
+package user;
 
 option go_package = ".;proto";
 
-service User {
-  rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
-}
-
-// 开发者
-message GetUserRequest {
-  int64 id = 1;
-}
-
-message GetUserResponse {
-  int64 id = 1;
+message User {
+  int64  id = 1;
+  string username = 2;
+  string nickname = 3;
+  string phone_number = 4;
+  int32  state = 5;
 }

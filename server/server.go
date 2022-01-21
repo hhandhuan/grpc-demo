@@ -12,7 +12,7 @@ const PORT = "9001"
 
 func Run() {
 	server := grpc.NewServer()
-	proto.RegisterUserServer(server, &rpc.UserService{})
+	proto.RegisterSearchUserServiceServer(server, &rpc.SearchService{})
 	lis, err := net.Listen("tcp", ":"+PORT)
 	if err != nil {
 		log.Fatalf("net.Listen err: %v", err)

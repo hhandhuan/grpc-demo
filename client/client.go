@@ -18,13 +18,13 @@ func main() {
 	}
 	defer conn.Close()
 
-	client := proto.NewUserClient(conn)
-	resp, err := client.GetUser(context.Background(), &proto.GetUserRequest{
+	client := proto.NewSearchUserServiceClient(conn)
+	resp, err := client.SearchUserDetail(context.Background(), &proto.SearchUserDetailRequest{
 		Id: 22,
 	})
 	if err != nil {
-		log.Fatalf("client.Search err: %v", err)
+		log.Println(err.Error())
 	}
 
-	log.Printf("resp: %s", resp.GetId())
+	log.Println(resp.GetUser().GetId())
 }

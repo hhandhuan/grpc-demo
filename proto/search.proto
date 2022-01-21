@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = ".;proto";
+
+import "proto/user.proto";
+
+service SearchUserService {
+  rpc SearchUserDetail (SearchUserDetailRequest) returns (SearchUserDetailResponse) {}
+}
+
+message SearchUserDetailRequest {
+  int64  id = 1;
+  string username = 2;
+  string phone_number = 3;
+}
+
+message SearchUserDetailResponse {
+  user.User user = 1;
+}
